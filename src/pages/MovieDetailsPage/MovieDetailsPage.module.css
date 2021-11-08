@@ -1,0 +1,53 @@
+.details {
+  padding: 10px 20px 10px;
+}
+
+.title {
+  color: #f0f0f0;
+}
+
+.release {
+  color: #527480;
+  font-size: 20px;
+}
+
+.genres {
+  color: #cbdce2;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.genres__item {
+  color: #e6e6e6;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.overview {
+  color: #b9d5de;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.details__img {
+  border-radius: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+.goBackButton {
+  width: 15%;
+  height: 35px;
+  font-size: 20px;
+  color: rgb(9, 40, 211);
+  background-color: #b0c4de;
+  border-radius: 5px;
+  border: none;
+}
+.goBackButton:hover,
+.goBackButton:focus {
+  color: #fff;
+  background-color: rgb(156, 4, 4);
+}

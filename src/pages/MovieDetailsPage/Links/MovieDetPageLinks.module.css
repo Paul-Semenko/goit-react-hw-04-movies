@@ -1,0 +1,14 @@
+.Link {
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: #add7f6;
+  font-size: 25px;
+}
+
+.ActiveLink {
+  composes: Link;
+  color: #cc21f3;
+}
