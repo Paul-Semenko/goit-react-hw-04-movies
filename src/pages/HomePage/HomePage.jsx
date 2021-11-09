@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 import s from "./HomePage.module.css";
 import defaultImage from "../../images/defaultImg.jpg";
+import { useLocation } from "react-router";
 
-const HomePage = ({ movie_list, titleHeader }) => {
-  
+const HomePage = ({ movie_list, titleHeader}) => {
+  const location = useLocation();
   return (
     <>
       {movie_list && (
@@ -13,9 +14,14 @@ const HomePage = ({ movie_list, titleHeader }) => {
           <h2 className={s.TitleHeader}>{titleHeader}</h2>
           {movie_list.length > 0 ? (
             <ul className={s.MovieGallery}>
-              {movie_list.map(({ id, title, backdrop_path }) => (
+              {movie_list.map(({ id, title, backdrop_path}) => (
                 <li className={s.MovieGalleryItem} key={id}>
-                  <Link to={`/movies/${id}`}>
+                  <Link to={{
+                    pathname: `/movies/${id}`,
+                    state: {
+                      from:{location, label: 'Go Back'}
+                    }
+                  }}>
                     
                     <img
                       src={

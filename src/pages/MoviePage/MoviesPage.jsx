@@ -7,6 +7,7 @@ import HomePage from "../HomePage/HomePage";
 import { getSearchMovie } from "../../MoviesAPI/MoviesAPI";
 
 
+
 const MoviePage = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [movieList, setMovieList] = useState([]);
@@ -36,7 +37,8 @@ const MoviePage = () => {
       <FormSearch 
         onFormSubmit={onFormSubmit} />
       {searchMovie && (
-        <HomePage 
+        <HomePage
+          
           movie_list={movieList}
           titleHeader={`Your search: ${searchMovie}`}
         />

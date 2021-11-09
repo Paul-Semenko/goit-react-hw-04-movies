@@ -18,7 +18,7 @@ const Reviews = () => {
   const getReviewsList = () => {
     getMovieDetailsCast(movie_id, "reviews")
       .then(({ results }) => setReviews(results))
-      .catch((e) => toast(e));
+      .catch((error) => toast(error));
   };
 
   return (

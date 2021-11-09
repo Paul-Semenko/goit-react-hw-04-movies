@@ -1,5 +1,5 @@
-import React, { useState, useEffect, lazy, Suspense, useCallback, useRef } from "react";
-import { Route, useParams, useHistory, useLocation } from "react-router-dom";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { Route, useParams, useHistory, useLocation} from "react-router-dom";
 import { toast } from "react-toastify";
 
 import MovieDetPagesLinks from "./Links/MovieDetPageLinks";
@@ -20,9 +20,7 @@ const MovieDetailsPage = () => {
   const history = useHistory();
   const location = useLocation();
 
-    const pathBack = useRef(location?.state?.from ?? "/");
-    const requestBack = useRef(location?.state?.search ?? "");
-  
+      
   useEffect(() => {
     getDetails();
     
@@ -35,22 +33,18 @@ const MovieDetailsPage = () => {
       .catch((error) => toast.error('Sorry, no reviews found'));
     
   };
-  const goBackButton = useCallback(() => {
-    history.push({
-      pathname: pathBack.current,
-      search: requestBack.current
-    })
-  }, [history]);
-  // const goBackButton = () => {
-  //   history.push(location?.state?.from ?? "/")
+  
+  const goBackButton = () => {
+    history.push(location?.state?.from?.location ?? "/");
     
-  // }
+  }
 
   return (
     <>
       <button type="button"
         className={s.goBackButton}
-        onClick={goBackButton}> Go Back</button>
+        onClick={goBackButton}>{location?.state?.from?.label?? 'Go Back' }</button>
+     
       {movieDetails && (
         <div className={s.details}>
           <h1 className={s.title}>{movieDetails.original_title}</h1>
