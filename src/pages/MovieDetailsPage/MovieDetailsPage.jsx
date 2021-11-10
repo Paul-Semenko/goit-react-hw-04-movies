@@ -35,7 +35,7 @@ const MovieDetailsPage = () => {
   };
   
   const goBackButton = () => {
-    history.push(location?.state?.from?.location ?? "/");
+    history.push(location.state?.from ? location.state.from : "/");
     
   }
 
@@ -43,7 +43,7 @@ const MovieDetailsPage = () => {
     <>
       <button type="button"
         className={s.goBackButton}
-        onClick={goBackButton}>{location?.state?.from?.label?? 'Go Back' }</button>
+        onClick={goBackButton}>Go Back</button>
      
       {movieDetails && (
         <div className={s.details}>

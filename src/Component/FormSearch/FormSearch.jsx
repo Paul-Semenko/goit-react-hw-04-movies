@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 
@@ -6,7 +7,8 @@ import s from "./FormSearch.module.css";
 
 const FormSearch = ({ onFormSubmit }) => {
   const [searchMovie, setSearchMovie] = useState("");
-
+  const history = useHistory();
+  const location = useLocation();
   const handleInputChange = (e) => {
     const { value } = e.currentTarget;
     setSearchMovie(value.toLowerCase());
@@ -18,6 +20,7 @@ const FormSearch = ({ onFormSubmit }) => {
       toast.error("Please enter your request", { autoClose: 3000 });
       return;
     }
+    history.push({ ...location, search:`query=${searchMovie}`})
     onFormSubmit(searchMovie);
     resetForm();
   };

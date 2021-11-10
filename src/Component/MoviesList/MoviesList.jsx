@@ -1,13 +1,12 @@
-import { useLocation} from 'react-router-dom';
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import s from '../../pages/HomePage/HomePage.module.css'
 import defaultImage from "../../images/defaultImg.jpg";
 
 
 const MoviesList = ({movie_list, titleHeader }) => {
     const location = useLocation();
-
+    
     return (
         <>
             {movie_list && (
@@ -20,9 +19,14 @@ const MoviesList = ({movie_list, titleHeader }) => {
                                     <Link to={{
                                         pathname: `/movies/${id}`,
                                         state: {
-                                            from: { location, label: 'Go Back' }
+                                            from: 
+                                                location,                                                
+                                                label: 'Go Back'
+                                            },
+                                            
                                         }
-                                    }}>
+                                        
+                                    }>
                     
                                         <img
                                             src={
@@ -51,7 +55,7 @@ const MoviesList = ({movie_list, titleHeader }) => {
 };
 
 MoviesList.propTypes = {
-  movie_list: PropTypes.array,
+  movie_list: PropTypes.arrayOf(PropTypes.object),
   titleHeader: PropTypes.string,
 };
 
