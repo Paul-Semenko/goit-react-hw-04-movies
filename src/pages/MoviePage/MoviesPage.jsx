@@ -1,11 +1,9 @@
 import { useState, useEffect} from "react";
 import { toast } from "react-toastify";
-// import { useHistory, useLocation } from 'react-router-dom';
+
 import FormSearch from "../../Component/FormSearch/FormSearch";
-import HomePage from "../HomePage/HomePage";
-
+import MoviesList from "../../Component/MoviesList/MoviesList";
 import { getSearchMovie } from "../../MoviesAPI/MoviesAPI";
-
 
 
 const MoviePage = () => {
@@ -37,8 +35,7 @@ const MoviePage = () => {
       <FormSearch 
         onFormSubmit={onFormSubmit} />
       {searchMovie && (
-        <HomePage
-          
+        <MoviesList          
           movie_list={movieList}
           titleHeader={`Your search: ${searchMovie}`}
         />
