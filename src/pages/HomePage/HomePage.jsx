@@ -7,7 +7,7 @@ import MoviesList from "../../Component/MoviesList/MoviesList";
 
 
 
-const HomePage = ({titleHeader}) => {
+const HomePage = ({movie_list, titleHeader}) => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
@@ -17,13 +17,13 @@ const HomePage = ({titleHeader}) => {
       })
     .catch((error)=> toast.error("Not Found"))
     
-  }, []);
+  }, [movieList]);
 
   
 
   return (
     <>     
-      <MoviesList movie_list={movieList} titleHeader={titleHeader}/>
+      <MoviesList movie_list={movie_list} titleHeader={titleHeader}/>
       </>
   )
 
